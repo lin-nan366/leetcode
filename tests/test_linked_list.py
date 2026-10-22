@@ -1,5 +1,6 @@
 """链表题的本地回归测试，仅依赖 Python 标准库。"""
 
+from itertools import product
 from pathlib import Path
 import runpy
 import unittest
@@ -42,6 +43,17 @@ def collect(head):
         nodes.append(head)
         head = head.next
     return nodes
+
+
+def cycle_cases():
+    """重复节点值，枚举无环、自环、入口在头部或内部的情况。"""
+    for size in range(9):
+        for pos in range(-1, size):
+            head = build([1] * size)
+            nodes = collect(head)
+            if pos >= 0:
+                nodes[-1].next = nodes[pos]
+            yield size, pos, head, nodes
 
 
 class LinkedListTests(unittest.TestCase):
@@ -122,6 +134,141 @@ class LinkedListTests(unittest.TestCase):
                     list(map(int, str(first + second))),
                 )
                 self.assertTrue(set(result).isdisjoint(inputs))
+
+    def test_middle_node(self):
+        solution = load_solution("0876_middle_of_the_linked_list.py")
+        for size in range(16):
+            with self.subTest(size=size):
+                head = build([i % 3 for i in range(size)])
+                nodes = collect(head)
+                expected = nodes[size // 2] if nodes else None
+                edges = [node.next for node in nodes]
+                self.assertIs(solution.middleNode(head), expected)
+                self.assertEqual([node.next for node in nodes], edges)
+
+    def test_has_cycle(self):
+        solution = load_solution("0141_linked_list_cycle.py")
+        for size, pos, head, nodes in cycle_cases():
+            with self.subTest(size=size, pos=pos):
+                edges = [node.next for node in nodes]
+                self.assertIs(solution.hasCycle(head), pos >= 0)
+                self.assertEqual([node.next for node in nodes], edges)
+
+    def test_detect_cycle(self):
+        solution = load_solution("0142_linked_list_cycle_ii.py")
+        for size, pos, head, nodes in cycle_cases():
+            with self.subTest(size=size, pos=pos):
+                expected = nodes[pos] if pos >= 0 else None
+                edges = [node.next for node in nodes]
+                self.assertIs(solution.detectCycle(head), expected)
+                self.assertEqual([node.next for node in nodes], edges)
+
+    def test_reorder_list(self):
+        solution = load_solution("0143_reorder_list.py")
+        for size in range(21):
+            with self.subTest(size=size):
+                values = [i % 3 for i in range(size)]
+                head = build(values)
+                nodes = collect(head)
+                remaining = list(range(size))
+                order = []
+                while remaining:
+                    order.append(remaining.pop(0))
+                    if remaining:
+                        order.append(remaining.pop())
+                self.assertIsNone(solution.reorderList(head))
+                self.assert_node_order(
+                    head, [nodes[i] for i in order], [values[i] for i in order]
+                )
+
+    def test_palindrome_and_restoration(self):
+        solution = load_solution("0234_palindrome_linked_list.py")
+        for size in range(8):
+            for digits in product((0, 1), repeat=size):
+                with self.subTest(values=digits):
+                    values = list(digits)
+                    head = build(values)
+                    nodes = collect(head)
+                    edges = [node.next for node in nodes]
+                    self.assertIs(solution.isPalindrome(head), values == values[::-1])
+                    # True 和 False 两条路径都必须恢复全部原连接。
+                    self.assert_node_order(head, nodes, values)
+                    self.assertEqual([node.next for node in nodes], edges)
+
+    def test_maximum_twin_sum(self):
+        solution = load_solution("2130_maximum_twin_sum_of_a_linked_list.py")
+        cases = [[5, 4, 2, 1], [4, 2, 2, 3], [1, 100000], [7, 7]]
+        cases += [[(i * 7) % 13 + 1 for i in range(size)] for size in range(2, 22, 2)]
+        for values in cases:
+            with self.subTest(values=values):
+                head = build(values)
+                nodes = collect(head)
+                expected = max(a + b for a, b in zip(values, reversed(values)))
+                self.assertEqual(solution.pairSum(head), expected)
+                self.assertEqual([node.val for node in nodes], values)
+                collect(head)  # 改变连接后仍应保持无环。
+
+    def test_double_it(self):
+        solution = load_solution("2816_double_a_number_represented_as_a_linked_list.py")
+        for number in (0, 1, 4, 5, 9, 10, 99, 189, 999, 1000, 909, 10 ** 100 - 1):
+            with self.subTest(number=number):
+                head = build(map(int, str(number)))
+                inputs = collect(head)
+                result = collect(solution.doubleIt(head))
+                self.assertEqual(
+                    [node.val for node in result], list(map(int, str(number * 2)))
+                )
+                self.assertTrue(set(result).isdisjoint(inputs))
+
+    def test_double_it_long_number(self):
+        solution = load_solution("2816_double_a_number_represented_as_a_linked_list.py")
+        result = collect(solution.doubleIt(build([9] * 10000)))
+        self.assertEqual([node.val for node in result], [1] + [9] * 9999 + [8])
+
+    def test_remove_elements(self):
+        solution = load_solution("0203_remove_linked_list_elements.py")
+        for size in range(7):
+            for digits in product((1, 2), repeat=size):
+                for val in (0, 1, 2):
+                    with self.subTest(values=digits, val=val):
+                        values = list(digits)
+                        head = build(values)
+                        nodes = collect(head)
+                        expected_nodes = [node for node in nodes if node.val != val]
+                        expected_values = [value for value in values if value != val]
+                        result = solution.removeElements(head, val)
+                        self.assert_node_order(result, expected_nodes, expected_values)
+
+    def test_delete_nodes_present_in_array(self):
+        solution = load_solution("3217_delete_nodes_from_linked_list_present_in_array.py")
+        cases = (
+            ([1, 2, 3], [1, 2, 3, 4, 5]),
+            ([1], [1, 2, 1, 2, 1, 2]),
+            ([5], [1, 2, 3, 4]),
+            ([1, 3], [1, 1, 2, 3, 3]),
+            ([7], [7, 7, 7]),
+            ([1, 1, 3], [1, 2, 3, 2]),
+            ([1], []),
+        )
+        for nums, values in cases:
+            with self.subTest(nums=nums, values=values):
+                head = build(values)
+                nodes = collect(head)
+                original_nums = nums[:]
+                expected_nodes = [node for node in nodes if node.val not in nums]
+                expected_values = [value for value in values if value not in nums]
+                result = solution.modifiedList(nums, head)
+                self.assert_node_order(result, expected_nodes, expected_values)
+                self.assertEqual(nums, original_nums)
+
+    def test_delete_nodes_large_membership_lookup(self):
+        # 模拟超时截图：大量相同节点值反复查询一个很长的数组。
+        # 不设置依赖机器速度的耗时阈值，直接验证规模与结果。
+        solution = load_solution("3217_delete_nodes_from_linked_list_present_in_array.py")
+        head = build([50004] * 100000)
+        nodes = collect(head)
+        result = solution.modifiedList(list(range(1, 50001)), head)
+        self.assert_node_order(result, nodes, [50004] * 100000)
 
 
 if __name__ == "__main__":

@@ -4,9 +4,13 @@
 提交到力扣时使用文件中的 `Solution`；`ListNode`、`TreeNode`、`Node`
 等节点类型由对应题目提供。
 
+每日整理：[2026-10-22 链表练习与易错点](notes/2026-10-22_linked_list.md)。
+
 ## 链表
 
 建议复习顺序：206 → 92 → 24 → 25 → 445。
+今天的复习路线：876 → 141 / 142 → 143 → 234 / 2130；
+2816 复习进位与结果头节点，203 → 3217 复习删除节点与集合查询。
 
 | 题号 | 题目 | 核心思路 |
 | --- | --- | --- |
@@ -15,6 +19,15 @@
 | 24 | [两两交换链表中的节点](linked_list/0024_swap_nodes_in_pairs.py) | 哨兵节点与三条连接的调整 |
 | 25 | [K 个一组翻转链表](linked_list/0025_reverse_nodes_in_k_group.py) | 只反转长度达到 k 的完整分组 |
 | 445 | [两数相加 II](linked_list/0445_add_two_numbers_ii.py) | 反转输入，逐位相加，再反转结果 |
+| 876 | [链表的中间结点](linked_list/0876_middle_of_the_linked_list.py) | 快慢指针，偶数长度返回第二个中点 |
+| 141 | [环形链表](linked_list/0141_linked_list_cycle.py) | 快慢指针移动后比较节点身份 |
+| 142 | [环形链表 II](linked_list/0142_linked_list_cycle_ii.py) | 相遇后，从头与相遇点同步寻找入口 |
+| 143 | [重排链表](linked_list/0143_reorder_list.py) | 找中点、反转后半段、交替连接 |
+| 234 | [回文链表](linked_list/0234_palindrome_linked_list.py) | 比较后恢复原链表，额外空间 O(1) |
+| 2130 | [链表最大孪生和](linked_list/2130_maximum_twin_sum_of_a_linked_list.py) | 前段与反转后的后段配对求和 |
+| 2816 | [翻倍以链表形式表示的数字](linked_list/2816_double_a_number_represented_as_a_linked_list.py) | 从个位乘 2，处理最后的进位 |
+| 203 | [移除链表元素](linked_list/0203_remove_linked_list_elements.py) | 删除后前驱不移动，避免跳过连续目标 |
+| 3217 | [从链表中移除在数组中存在的节点](linked_list/3217_delete_nodes_from_linked_list_present_in_array.py) | 数组转集合，单次遍历删除 |
 
 ### 这次练习的易错点
 
@@ -50,6 +63,6 @@
 python -B -m unittest discover -s tests -v
 ```
 
-测试文件提供本地 `ListNode`，验证本次新增的 206、92、24、445 四题。
-覆盖空链表、单节点、奇偶长度、不同反转区间、连续进位及 100 位数字。
-同时检查结果是否成环，以及原地操作是否保留节点身份和值。
+测试文件提供本地 `ListNode`，覆盖 206、92、24、445，以及 2026-10-22 新增题目。
+验证空链表、奇偶长度、不同反转区间、环与入口、回文后恢复、连续删除和最后进位。
+检查节点身份、值与连接，检测意外成环，并覆盖 10000 位乘 2 和 100000 节点集合查询。
