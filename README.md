@@ -9,6 +9,14 @@
 - [2026-10-22 链表练习与易错点](notes/2026-10-22_linked_list.md)
 - [2026-10-23 双指针练习与易错点](notes/2026-10-23_two_pointers.md)
 
+## Math Algorithms
+
+Solutions are stored in `math_algorithms` with English filenames.
+
+| Number | Problem | Core Idea |
+| --- | --- | --- |
+| 2535 | [Difference Between Element Sum and Digit Sum of an Array](math_algorithms/2535_difference_between_element_sum_and_digit_sum_of_an_array.py) | Array traversal and digit extraction using modulo and integer division |
+
 ## 双指针
 
 2026-10-23 整理的 6 道题，代码放在 `two_pointers`，沿用四位题号与英文题名的命名方式。
