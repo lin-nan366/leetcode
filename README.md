@@ -75,6 +75,7 @@ Solutions are stored in `math_algorithms` with English filenames.
 | 116 | [填充每个节点的下一个右侧节点指针](binary_tree/0116_populating_next_right_pointers_in_each_node.py) |
 | 117 | [填充每个节点的下一个右侧节点指针 II](binary_tree/0117_populating_next_right_pointers_in_each_node_ii.py) |
 | 199 | [二叉树的右视图](binary_tree/0199_binary_tree_right_side_view.py) |
+| 1448 | [统计二叉树中好节点的数目](binary_tree/1448_count_good_nodes_in_binary_tree.py) |
 | 1609 | [奇偶树](binary_tree/1609_even_odd_tree.py) |
 | 2415 | [反转二叉树的奇数层](binary_tree/2415_reverse_odd_levels_of_binary_tree.py) |
 | 2583 | [二叉树中的第 K 大层和](binary_tree/2583_kth_largest_sum_in_a_binary_tree.py) |
