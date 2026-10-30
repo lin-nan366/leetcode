@@ -1,13 +1,13 @@
-# LeetCode �㷨��ϰ
+# LeetCode 算法练习
 
-���������� Python �ⷨ��ÿ���ļ���������˼·�����ӶȺ�ԭ�����ӡ�
-�ύ������ʱʹ���ļ��е� `Solution`��`ListNode`��`TreeNode`��`Node`
-�Ƚڵ������ɶ�Ӧ��Ŀ�ṩ��
+按题型整理 Python 解法，每个文件包含中文思路、复杂度和原题链接。
+提交到力扣时使用文件中的 `Solution`；`ListNode`、`TreeNode`、`Node`
+等节点类型由对应题目提供。
 
-ÿ��������
+每日整理：
 
-- [2026-10-22 ������ϰ���״���](notes/2026-10-22_linked_list.md)
-- [2026-10-23 ˫ָ����ϰ���״���](notes/2026-10-23_two_pointers.md)
+- [2026-10-22 链表练习与易错点](notes/2026-10-22_linked_list.md)
+- [2026-10-23 双指针练习与易错点](notes/2026-10-23_two_pointers.md)
 
 ## Array Algorithms
 
@@ -15,6 +15,7 @@ Solutions are stored in `array_algorithms` with English filenames.
 
 | Number | Problem | Core Idea |
 | --- | --- | --- |
+| 27 | [Remove Element](array_algorithms/0027_remove_element.py) | Replace target values with infinity, sort, and return the retained count |
 | 88 | [Merge Sorted Array](array_algorithms/0088_merge_sorted_array.py) | Fill reserved positions from index m, then sort nums1 in place |
 
 ## Math Algorithms
@@ -25,81 +26,81 @@ Solutions are stored in `math_algorithms` with English filenames.
 | --- | --- | --- |
 | 2535 | [Difference Between Element Sum and Digit Sum of an Array](math_algorithms/2535_difference_between_element_sum_and_digit_sum_of_an_array.py) | Array traversal and digit extraction using modulo and integer division |
 
-## ˫ָ��
+## 双指针
 
-2026-10-23 ������ 6 ���⣬������� `two_pointers`��������λ�����Ӣ��������������ʽ��
+2026-10-23 整理的 6 道题，代码放在 `two_pointers`，沿用四位题号与英文题名的命名方式。
 
-| ��� | ��Ŀ | ����˼· |
+| 题号 | 题目 | 核心思路 |
 | --- | --- | --- |
-| 42 | [����ˮ](two_pointers/0042_trapping_rain_water.py) | �Ƚ��������߶ȣ�ÿ�ν���һ����ˮ |
-| 125 | [��֤���Ĵ�](two_pointers/0125_valid_palindrome.py) | ������ĸ���֡�תСд���ٴ����˱Ƚ� |
-| 2105 | [��ֲ�ｽˮ II](two_pointers/2105_watering_plants_ii.py) | ÿ�ֲ�ˮ��������ˮ���м�һ�굥���ж� |
-| 16 | [��ӽ�������֮��](two_pointers/0016_3sum_closest.py) | ��С�������Ӧ�ĺ�ͬ������ |
-| 15 | [����֮��](two_pointers/0015_3sum.py) | �̶�һ�������ҵ��𰸺��ƶ�ָ�벢�����ظ�ֵ |
-| 611 | [��Ч�����εĸ���](two_pointers/0611_valid_triangle_number.py) | �̶���ߣ�һ���ۼ�һ�κϷ��±� |
+| 42 | [接雨水](two_pointers/0042_trapping_rain_water.py) | 比较两端最大高度，每次结算一列雨水 |
+| 125 | [验证回文串](two_pointers/0125_valid_palindrome.py) | 过滤字母数字、转小写，再从两端比较 |
+| 2105 | [给植物浇水 II](two_pointers/2105_watering_plants_ii.py) | 每轮补水后立即浇水，中间一株单独判断 |
+| 16 | [最接近的三数之和](two_pointers/0016_3sum_closest.py) | 最小距离与对应的和同步更新 |
+| 15 | [三数之和](two_pointers/0015_3sum.py) | 固定一个数，找到答案后移动指针并跳过重复值 |
+| 611 | [有效三角形的个数](two_pointers/0611_valid_triangle_number.py) | 固定最长边，一次累计一段合法下标 |
 
-## ����
+## 链表
 
-���鸴ϰ˳��206 �� 92 �� 24 �� 25 �� 445��
-����ĸ�ϰ·�ߣ�876 �� 141 / 142 �� 143 �� 234 / 2130��
-2816 ��ϰ��λ����ͷ�ڵ㣬203 �� 3217 ��ϰɾ���ڵ��뼯�ϲ�ѯ��
+建议复习顺序：206 → 92 → 24 → 25 → 445。
+今天的复习路线：876 → 141 / 142 → 143 → 234 / 2130；
+2816 复习进位与结果头节点，203 → 3217 复习删除节点与集合查询。
 
-| ��� | ��Ŀ | ����˼· |
+| 题号 | 题目 | 核心思路 |
 | --- | --- | --- |
-| 206 | [��ת����](linked_list/0206_reverse_linked_list.py) | �����̣������ת next |
-| 92 | [��ת���� II](linked_list/0092_reverse_linked_list_ii.py) | ��תָ�����䣬���������� |
-| 24 | [�������������еĽڵ�](linked_list/0024_swap_nodes_in_pairs.py) | �ڱ��ڵ����������ӵĵ��� |
-| 25 | [K ��һ�鷭ת����](linked_list/0025_reverse_nodes_in_k_group.py) | ֻ��ת���ȴﵽ k ���������� |
-| 445 | [������� II](linked_list/0445_add_two_numbers_ii.py) | ��ת���룬��λ��ӣ��ٷ�ת��� |
-| 876 | [�������м���](linked_list/0876_middle_of_the_linked_list.py) | ����ָ�룬ż�����ȷ��صڶ����е� |
-| 141 | [��������](linked_list/0141_linked_list_cycle.py) | ����ָ���ƶ���ȽϽڵ����� |
-| 142 | [�������� II](linked_list/0142_linked_list_cycle_ii.py) | �����󣬴�ͷ��������ͬ��Ѱ����� |
-| 143 | [��������](linked_list/0143_reorder_list.py) | ���е㡢��ת���Ρ��������� |
-| 234 | [��������](linked_list/0234_palindrome_linked_list.py) | �ȽϺ�ָ�ԭ����������ռ� O(1) |
-| 2130 | [�������������](linked_list/2130_maximum_twin_sum_of_a_linked_list.py) | ǰ���뷴ת��ĺ�������� |
-| 2816 | [������������ʽ��ʾ������](linked_list/2816_double_a_number_represented_as_a_linked_list.py) | �Ӹ�λ�� 2���������Ľ�λ |
-| 203 | [�Ƴ�����Ԫ��](linked_list/0203_remove_linked_list_elements.py) | ɾ����ǰ�����ƶ���������������Ŀ�� |
-| 3217 | [���������Ƴ��������д��ڵĽڵ�](linked_list/3217_delete_nodes_from_linked_list_present_in_array.py) | ����ת���ϣ����α���ɾ�� |
+| 206 | [反转链表](linked_list/0206_reverse_linked_list.py) | 保存后继，逐个反转 next |
+| 92 | [反转链表 II](linked_list/0092_reverse_linked_list_ii.py) | 反转指定区间，再连接两端 |
+| 24 | [两两交换链表中的节点](linked_list/0024_swap_nodes_in_pairs.py) | 哨兵节点与三条连接的调整 |
+| 25 | [K 个一组翻转链表](linked_list/0025_reverse_nodes_in_k_group.py) | 只反转长度达到 k 的完整分组 |
+| 445 | [两数相加 II](linked_list/0445_add_two_numbers_ii.py) | 反转输入，逐位相加，再反转结果 |
+| 876 | [链表的中间结点](linked_list/0876_middle_of_the_linked_list.py) | 快慢指针，偶数长度返回第二个中点 |
+| 141 | [环形链表](linked_list/0141_linked_list_cycle.py) | 快慢指针移动后比较节点身份 |
+| 142 | [环形链表 II](linked_list/0142_linked_list_cycle_ii.py) | 相遇后，从头与相遇点同步寻找入口 |
+| 143 | [重排链表](linked_list/0143_reorder_list.py) | 找中点、反转后半段、交替连接 |
+| 234 | [回文链表](linked_list/0234_palindrome_linked_list.py) | 比较后恢复原链表，额外空间 O(1) |
+| 2130 | [链表最大孪生和](linked_list/2130_maximum_twin_sum_of_a_linked_list.py) | 前段与反转后的后段配对求和 |
+| 2816 | [翻倍以链表形式表示的数字](linked_list/2816_double_a_number_represented_as_a_linked_list.py) | 从个位乘 2，处理最后的进位 |
+| 203 | [移除链表元素](linked_list/0203_remove_linked_list_elements.py) | 删除后前驱不移动，避免跳过连续目标 |
+| 3217 | [从链表中移除在数组中存在的节点](linked_list/3217_delete_nodes_from_linked_list_present_in_array.py) | 数组转集合，单次遍历删除 |
 
-### �����ϰ���״���
+### 这次练习的易错点
 
-- `cur = cur.next` �ƶ�������`cur.next = pre` �޸��������ӡ�
-- ��תǰ���� `nxt = cur.next` ��������ڵ㣬����� `cur = nxt` ǰ����
-  `cur.next = cur` ������Ի�����д `pre = cur` ��д `cur = pre` ��ͣ��ԭ�ء�
-- ���� `.next` �� `.val` ǰȷ�Ͻڵ���ڡ�`head` ��������ͷ�ڵ㣬û�� `.head` ���ԡ�
-- ��ת������ `[left, right]` ʱ����Ҫ���� `right - left + 1` ���ڵ㡣
-- `dummy` ������ڣ�`tail` ��׷���ƶ������ܸı�ͷ�ڵ�Ĳ���Ҫ���ز���ס��ͷ�ڵ㡣
-- �������ʹ�� `total = x + y + carry`��`digit = total % 10`��
-  `carry = total // 10`��ȱ�ٵ�λ�� 0 ���������ս�λҲҪ���ɽڵ㡣
-- 445 �ĵ�ǰ�ⷨ�ᷴת�������������ͨ���½��ڵ����ɣ�����ת����Ľ��׽ⷨ����ʹ��ջ��
-- ͨ�� `self.method(...)` ���õĸ���������Ҫ������ͬһ�����У�����������������ͬ������
+- `cur = cur.next` 移动变量；`cur.next = pre` 修改链表连接。
+- 反转前先用 `nxt = cur.next` 保存后续节点，最后用 `cur = nxt` 前进。
+  `cur.next = cur` 会产生自环；先写 `pre = cur` 再写 `cur = pre` 会停在原地。
+- 访问 `.next` 或 `.val` 前确认节点存在。`head` 本身就是头节点，没有 `.head` 属性。
+- 反转闭区间 `[left, right]` 时，需要处理 `right - left + 1` 个节点。
+- `dummy` 保留入口，`tail` 随追加移动；可能改变头节点的操作要返回并接住新头节点。
+- 两数相加使用 `total = x + y + carry`、`digit = total % 10`、
+  `carry = total // 10`。缺少的位按 0 处理，最终进位也要生成节点。
+- 445 的当前解法会反转输入链表，结果通过新建节点生成；不反转输入的进阶解法可以使用栈。
+- 通过 `self.method(...)` 调用的辅助方法，要定义在同一个类中，与其他方法保持相同缩进。
 
-## ������
+## 二叉树
 
-| ��� | ��Ŀ |
+| 题号 | 题目 |
 | --- | --- |
-| 104 | [��������������](binary_tree/0104_maximum_depth_of_binary_tree.py) |
-| 111 | [����������С���](binary_tree/0111_minimum_depth_of_binary_tree.py) |
-| 116 | [���ÿ���ڵ����һ���Ҳ�ڵ�ָ��](binary_tree/0116_populating_next_right_pointers_in_each_node.py) |
-| 117 | [���ÿ���ڵ����һ���Ҳ�ڵ�ָ�� II](binary_tree/0117_populating_next_right_pointers_in_each_node_ii.py) |
-| 199 | [������������ͼ](binary_tree/0199_binary_tree_right_side_view.py) |
-| 1448 | [ͳ�ƶ������кýڵ����Ŀ](binary_tree/1448_count_good_nodes_in_binary_tree.py) |
-| 1609 | [��ż��](binary_tree/1609_even_odd_tree.py) |
-| 2415 | [��ת��������������](binary_tree/2415_reverse_odd_levels_of_binary_tree.py) |
-| 2583 | [�������еĵ� K ����](binary_tree/2583_kth_largest_sum_in_a_binary_tree.py) |
+| 104 | [二叉树的最大深度](binary_tree/0104_maximum_depth_of_binary_tree.py) |
+| 111 | [二叉树的最小深度](binary_tree/0111_minimum_depth_of_binary_tree.py) |
+| 116 | [填充每个节点的下一个右侧节点指针](binary_tree/0116_populating_next_right_pointers_in_each_node.py) |
+| 117 | [填充每个节点的下一个右侧节点指针 II](binary_tree/0117_populating_next_right_pointers_in_each_node_ii.py) |
+| 199 | [二叉树的右视图](binary_tree/0199_binary_tree_right_side_view.py) |
+| 1448 | [统计二叉树中好节点的数目](binary_tree/1448_count_good_nodes_in_binary_tree.py) |
+| 1609 | [奇偶树](binary_tree/1609_even_odd_tree.py) |
+| 2415 | [反转二叉树的奇数层](binary_tree/2415_reverse_odd_levels_of_binary_tree.py) |
+| 2583 | [二叉树中的第 K 大层和](binary_tree/2583_kth_largest_sum_in_a_binary_tree.py) |
 
-## ������֤
+## 本地验证
 
-ʹ�� Python 3.10 ����°汾���ڲֿ��Ŀ¼���У�
+使用 Python 3.10 或更新版本，在仓库根目录运行：
 
 ```bash
 python -B -m unittest discover -s tests -v
 ```
 
-�����ļ��ṩ���� `ListNode`������ 206��92��24��445���Լ� 2026-10-22 ������Ŀ��
-��֤����������ż���ȡ���ͬ��ת���䡢������ڡ����ĺ�ָ�������ɾ��������λ��
-���ڵ����ݡ�ֵ�����ӣ��������ɻ��������� 10000 λ�� 2 �� 100000 �ڵ㼯�ϲ�ѯ��
+测试文件提供本地 `ListNode`，覆盖 206、92、24、445，以及 2026-10-22 新增题目。
+验证空链表、奇偶长度、不同反转区间、环与入口、回文后恢复、连续删除和最后进位。
+检查节点身份、值与连接，检测意外成环，并覆盖 10000 位乘 2 和 100000 节点集合查询。
 
-`tests/test_two_pointers.py` ���� 2026-10-23 �� 6 ���⣬�������������������
-ʹ�����м��㡢��Ԫ����ٺͶ����Ľ�ˮģ��˶Խ��������ظ���ϡ��ϸ������β���ʽ��
-���˺���ַ�������ż�������м䲹ˮ�������Ǵ����ظ�ֵ�ļ�����ȥ�ء�
+`tests/test_two_pointers.py` 覆盖 2026-10-23 的 6 道题，包含今天出错的用例。
+使用逐列计算、三元组穷举和独立的浇水模拟核对结果，检查重复组合、严格三角形不等式、
+过滤后空字符串、奇偶长度与中间补水，并覆盖大量重复值的计数与去重。
