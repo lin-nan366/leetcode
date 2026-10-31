@@ -17,6 +17,7 @@ Solutions are stored in `array_algorithms` with English filenames.
 | --- | --- | --- |
 | 27 | [Remove Element](array_algorithms/0027_remove_element.py) | Replace target values with infinity, sort, and return the retained count |
 | 88 | [Merge Sorted Array](array_algorithms/0088_merge_sorted_array.py) | Fill reserved positions from index m, then sort nums1 in place |
+| 169 | [Majority Element](array_algorithms/0169_majority_element.py) | Sort the array and select the middle element, covered by the strict majority |
 
 ## Math Algorithms
 
