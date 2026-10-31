@@ -29,11 +29,12 @@ Solutions are stored in `math_algorithms` with English filenames.
 
 ## 双指针
 
-2026-10-23 整理的 6 道题，代码放在 `two_pointers`，沿用四位题号与英文题名的命名方式。
+代码放在 `two_pointers`，沿用四位题号与英文题名的命名方式。
 
 | 题号 | 题目 | 核心思路 |
 | --- | --- | --- |
 | 42 | [接雨水](two_pointers/0042_trapping_rain_water.py) | 比较两端最大高度，每次结算一列雨水 |
+| 80 | [Remove Duplicates from Sorted Array II](two_pointers/0080_remove_duplicates_from_sorted_array_ii.py) | Read/write pointers compare with the second-to-last retained value to keep at most two copies |
 | 125 | [验证回文串](two_pointers/0125_valid_palindrome.py) | 过滤字母数字、转小写，再从两端比较 |
 | 2105 | [给植物浇水 II](two_pointers/2105_watering_plants_ii.py) | 每轮补水后立即浇水，中间一株单独判断 |
 | 16 | [最接近的三数之和](two_pointers/0016_3sum_closest.py) | 最小距离与对应的和同步更新 |
