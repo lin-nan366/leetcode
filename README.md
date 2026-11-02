@@ -8,6 +8,7 @@
 
 - [2026-10-22 链表练习与易错点](notes/2026-10-22_linked_list.md)
 - [2026-10-23 双指针练习与易错点](notes/2026-10-23_two_pointers.md)
+- [2026-11-02 相交链表：双指针切换与节点身份](notes/2026-11-02_intersection_of_two_linked_lists.md)
 
 ## Array Algorithms
 
@@ -57,6 +58,7 @@ Solutions are stored in `math_algorithms` with English filenames.
 | 876 | [链表的中间结点](linked_list/0876_middle_of_the_linked_list.py) | 快慢指针，偶数长度返回第二个中点 |
 | 141 | [环形链表](linked_list/0141_linked_list_cycle.py) | 快慢指针移动后比较节点身份 |
 | 142 | [环形链表 II](linked_list/0142_linked_list_cycle_ii.py) | 相遇后，从头与相遇点同步寻找入口 |
+| 160 | [相交链表](linked_list/0160_intersection_of_two_linked_lists.py) | 双指针切换链表抵消长度差，比较节点身份 |
 | 143 | [重排链表](linked_list/0143_reorder_list.py) | 找中点、反转后半段、交替连接 |
 | 234 | [回文链表](linked_list/0234_palindrome_linked_list.py) | 比较后恢复原链表，额外空间 O(1) |
 | 2130 | [链表最大孪生和](linked_list/2130_maximum_twin_sum_of_a_linked_list.py) | 前段与反转后的后段配对求和 |
@@ -102,6 +104,7 @@ python -B -m unittest discover -s tests -v
 测试文件提供本地 `ListNode`，覆盖 206、92、24、445，以及 2026-10-22 新增题目。
 验证空链表、奇偶长度、不同反转区间、环与入口、回文后恢复、连续删除和最后进位。
 检查节点身份、值与连接，检测意外成环，并覆盖 10000 位乘 2 和 100000 节点集合查询。
+160 另外覆盖共享尾部、同值但不相交、相同头节点和空链表，并验证输入结构保持不变。
 
 `tests/test_two_pointers.py` 覆盖 2026-10-23 的 6 道题，包含今天出错的用例。
 使用逐列计算、三元组穷举和独立的浇水模拟核对结果，检查重复组合、严格三角形不等式、

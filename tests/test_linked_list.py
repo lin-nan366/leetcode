@@ -163,6 +163,48 @@ class LinkedListTests(unittest.TestCase):
                 self.assertIs(solution.detectCycle(head), expected)
                 self.assertEqual([node.next for node in nodes], edges)
 
+    def test_intersection_node(self):
+        solution = load_solution("0160_intersection_of_two_linked_lists.py")
+
+        def attach_prefix(values, shared):
+            head = build(values)
+            nodes = collect(head)
+            if not nodes:
+                return shared
+            nodes[-1].next = shared
+            return head
+
+        # 三元组依次是 A 独有部分、B 独有部分、真正共享的尾部。
+        cases = [
+            ([4, 1], [5, 6, 1], [8, 4, 5]),
+            ([1, 9, 1], [3], [2, 4]),
+            ([2, 6, 4], [1, 5], []),
+            ([1, 2, 3], [1, 2, 3], []),
+            ([], [], [7]),
+            ([], [], [1, 2, 3]),
+            ([1], [], [2, 3]),
+            ([], [3, 4], [1, 2]),
+            ([7, 7], [7], [7]),
+            ([], [], []),
+            ([], [1, 2], []),
+            ([1, 2], [], []),
+        ]
+        # 不同长度组合全部用相同节点值，确保判断依赖身份而不是 val。
+        cases += [
+            ([1] * a, [1] * b, [1] * c)
+            for a, b, c in product(range(6), range(6), range(4))
+        ]
+        for prefix_a, prefix_b, suffix in cases:
+            with self.subTest(prefix_a=prefix_a, prefix_b=prefix_b, suffix=suffix):
+                shared = build(suffix)
+                head_a = attach_prefix(prefix_a, shared)
+                head_b = attach_prefix(prefix_b, shared)
+                nodes = collect(head_a) + collect(head_b)
+                original = [(node.val, node.next) for node in nodes]
+
+                self.assertIs(solution.getIntersectionNode(head_a, head_b), shared)
+                self.assertEqual([(node.val, node.next) for node in nodes], original)
+
     def test_reorder_list(self):
         solution = load_solution("0143_reorder_list.py")
         for size in range(21):
