@@ -20,6 +20,14 @@ Solutions are stored in `array_algorithms` with English filenames.
 | 88 | [Merge Sorted Array](array_algorithms/0088_merge_sorted_array.py) | Fill reserved positions from index m, then sort nums1 in place |
 | 169 | [Majority Element](array_algorithms/0169_majority_element.py) | Sort the array and select the middle element, covered by the strict majority |
 
+## Sorting
+
+代码放在 `sorting`，沿用四位题号与英文题名的命名方式。
+
+| 题号 | 题目 | 核心思路 |
+| --- | --- | --- |
+| 912 | [排序数组](sorting/0912_sort_an_array.py) | 随机选择基准，三路划分后递归排序小于和大于基准的两段 |
+
 ## Math Algorithms
 
 Solutions are stored in `math_algorithms` with English filenames.
