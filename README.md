@@ -9,6 +9,7 @@
 - [2026-10-22 链表练习与易错点](notes/2026-10-22_linked_list.md)
 - [2026-10-23 双指针练习与易错点](notes/2026-10-23_two_pointers.md)
 - [2026-11-02 相交链表：双指针切换与节点身份](notes/2026-11-02_intersection_of_two_linked_lists.md)
+- [2026-11-10 寻找重复数：数组跳转、环入口与快慢指针证明](notes/2026-11-10_find_the_duplicate_number.md)
 
 ## Array Algorithms
 
@@ -45,6 +46,7 @@ Solutions are stored in `math_algorithms` with English filenames.
 | 42 | [接雨水](two_pointers/0042_trapping_rain_water.py) | 比较两端最大高度，每次结算一列雨水 |
 | 80 | [Remove Duplicates from Sorted Array II](two_pointers/0080_remove_duplicates_from_sorted_array_ii.py) | Read/write pointers compare with the second-to-last retained value to keep at most two copies |
 | 125 | [验证回文串](two_pointers/0125_valid_palindrome.py) | 过滤字母数字、转小写，再从两端比较 |
+| 287 | [Find the Duplicate Number](two_pointers/0287_find_the_duplicate_number.py) | Follow index-to-value jumps and use Floyd's algorithm to find the cycle entrance |
 | 2105 | [给植物浇水 II](two_pointers/2105_watering_plants_ii.py) | 每轮补水后立即浇水，中间一株单独判断 |
 | 16 | [最接近的三数之和](two_pointers/0016_3sum_closest.py) | 最小距离与对应的和同步更新 |
 | 15 | [三数之和](two_pointers/0015_3sum.py) | 固定一个数，找到答案后移动指针并跳过重复值 |
