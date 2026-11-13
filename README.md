@@ -10,6 +10,7 @@
 - [2026-10-23 双指针练习与易错点](notes/2026-10-23_two_pointers.md)
 - [2026-11-02 相交链表：双指针切换与节点身份](notes/2026-11-02_intersection_of_two_linked_lists.md)
 - [2026-11-10 寻找重复数：数组跳转、环入口与快慢指针证明](notes/2026-11-10_find_the_duplicate_number.md)
+- [2026-11-13 除自身以外数组的乘积：复用答案数组与滚动右侧乘积](notes/2026-11-13_product_of_array_except_self.md)
 
 ## Array Algorithms
 
@@ -20,6 +21,7 @@ Solutions are stored in `array_algorithms` with English filenames.
 | 27 | [Remove Element](array_algorithms/0027_remove_element.py) | Replace target values with infinity, sort, and return the retained count |
 | 88 | [Merge Sorted Array](array_algorithms/0088_merge_sorted_array.py) | Fill reserved positions from index m, then sort nums1 in place |
 | 169 | [Majority Element](array_algorithms/0169_majority_element.py) | Sort the array and select the middle element, covered by the strict majority |
+| 238 | [Product of Array Except Self](array_algorithms/0238_product_of_array_except_self.py) | Store left products in the output and multiply by a rolling right product |
 
 ## Sorting
 
