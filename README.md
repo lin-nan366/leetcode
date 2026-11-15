@@ -11,6 +11,15 @@
 - [2026-11-02 相交链表：双指针切换与节点身份](notes/2026-11-02_intersection_of_two_linked_lists.md)
 - [2026-11-10 寻找重复数：数组跳转、环入口与快慢指针证明](notes/2026-11-10_find_the_duplicate_number.md)
 - [2026-11-13 除自身以外数组的乘积：复用答案数组与滚动右侧乘积](notes/2026-11-13_product_of_array_except_self.md)
+- [2026-11-15 和为奇数的子数组数目：前缀奇偶性与计数](notes/2026-11-15_number_of_sub_arrays_with_odd_sum.md)
+
+## Prefix Sum
+
+代码放在 `prefix_sum`，沿用四位题号与英文题名的命名方式。
+
+| Number | Problem | Core Idea |
+| --- | --- | --- |
+| 1524 | [Number of Sub-arrays With Odd Sum](prefix_sum/1524_number_of_sub_arrays_with_odd_sum.py) | Count previous prefixes with parity opposite to the current prefix |
 
 ## Array Algorithms
 
