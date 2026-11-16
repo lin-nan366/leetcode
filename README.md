@@ -12,6 +12,15 @@
 - [2026-11-10 寻找重复数：数组跳转、环入口与快慢指针证明](notes/2026-11-10_find_the_duplicate_number.md)
 - [2026-11-13 除自身以外数组的乘积：复用答案数组与滚动右侧乘积](notes/2026-11-13_product_of_array_except_self.md)
 - [2026-11-15 和为奇数的子数组数目：前缀奇偶性与计数](notes/2026-11-15_number_of_sub_arrays_with_odd_sum.md)
+- [2026-11-16 计算字符串的数字和：分组求和、切片与字符串拼接](notes/2026-11-16_calculate_digit_sum_of_a_string.md)
+
+## Simulation
+
+代码放在 `simulation`，沿用四位题号与英文题名的命名方式。
+
+| Number | Problem | Core Idea |
+| --- | --- | --- |
+| 2243 | [Calculate Digit Sum of a String](simulation/2243_calculate_digit_sum_of_a_string.py) | Sum digits in groups of k, concatenate group sums, and repeat until the length is at most k |
 
 ## Prefix Sum
 
